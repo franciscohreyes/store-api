@@ -1,0 +1,2010 @@
+{
+	"info": {
+		"_postman_id": "67bfb6d1-bd88-4bf9-987c-678c024d34ec",
+		"name": "Store API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29572544"
+	},
+	"item": [
+		{
+			"name": "Business",
+			"item": [
+				{
+					"name": "Get businesses",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/businesses",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"businesses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get business",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/businesses/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"businesses",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fail",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/businesses/1",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"businesses",
+										"1"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"success\": false,\r\n    \"message\": \"Authentication failed\",\r\n    \"error\": \"jwt expired\"\r\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/businesses/1",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"businesses",
+										"1"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Negocio no encontrado\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete business by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/businesses/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"businesses",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/businesses/1",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"businesses",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Negocio eliminado con éxito\"\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/businesses/1",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"businesses",
+										"1"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Negocio no encontrado\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Search business",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/businesses/search?name=Grupo",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"businesses",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Grupo"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/businesses/search?name=Grupo",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"businesses",
+										"search"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Grupo"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"No se han encontrado negocios que cumplan los criterios\"\n}"
+						}
+					]
+				},
+				{
+					"name": "New businesses",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Grupo Maranja de México\",\r\n    \"address\": \"México\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/businesses",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"businesses"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fail",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Tienda 1\",\r\n    \"address\": \"México\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/businesses",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"businesses"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Ya existe una empresa con este nombre\"\n}"
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Grupo Maranja de México\",\r\n    \"address\": \"México\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/businesses",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"businesses"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"createdAt\": \"2025-01-17T23:24:08.341Z\",\n        \"updatedAt\": \"2025-01-17T23:24:08.341Z\",\n        \"isDeleted\": false,\n        \"id\": 2,\n        \"name\": \"Grupo Maranja de México\",\n        \"address\": \"México\"\n    }\n}"
+						},
+						{
+							"name": "Fail empty name",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Marca Blanca\",\r\n    \"address\": \"México\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/businesses",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"businesses"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"El nombre del negocio no puede estar vacío\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update businesses",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Tiendas Optima\",\r\n    \"address\": \"México\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/businesses/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"businesses",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fail",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Tienda 1\",\r\n    \"address\": \"México\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/businesses",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"businesses"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Ya existe una empresa con este nombre\"\n}"
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Tienda 1\",\r\n    \"address\": \"México\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/businesses",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"businesses"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"createdAt\": \"2025-01-16T17:54:31.722Z\",\n        \"updatedAt\": \"2025-01-16T17:54:31.722Z\",\n        \"id\": 3,\n        \"name\": \"Tienda 3\",\n        \"address\": \"México\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/users",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Activate account",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"demo@demo.com\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/users/activate/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users",
+								"activate",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"demo@demo.com\",\r\n    \"password\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/users/activate/1",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"users",
+										"activate",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Cuenta activada correctamente\"\n}"
+						},
+						{
+							"name": "Activate account",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"demo@demo.com\",\r\n    \"password\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/users/activate/1",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"users",
+										"activate",
+										"1"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"La cuenta ya está activada\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/users/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/users/1",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Brown - Towne\",\n        \"email\": \"demo@demo.com\",\n        \"password\": \"$2b$10$odhmaapsvgcF0XwiJ14dWOMSVat/fCqGmEQt3BtJW7/Kf0QE2LUSS\",\n        \"role\": \"Cliente\",\n        \"isVerified\": true,\n        \"isDeleted\": false,\n        \"createdAt\": \"2025-01-16T22:46:28.207Z\",\n        \"updatedAt\": \"2025-01-16T22:50:23.763Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/users/4",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fail 403",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/users/1",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Access forbidden: insufficient permissions\"\n}"
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/users/4",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"users",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Usuario eliminado correctamente\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Search users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/users?query=d",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "d"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Juan Perez\",\r\n    \"email\": \"demo@demo.com\",\r\n    \"password\": \"12345678\",\r\n    \"role\": \"Cliente\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/users/auth/register",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fail",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"{{$randomCompanyName}}\",\r\n    \"email\": \"demo@demo.com\",\r\n    \"password\": \"12345678\",\r\n    \"role\": \"Cliente\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/users/auth/register",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"users",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Ya existe un usuario con la misma dirección de correo electrónico\"\n}"
+						},
+						{
+							"name": "New user OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"{{$randomCompanyName}}\",\r\n    \"email\": \"demo@demo.com\",\r\n    \"password\": \"12345678\",\r\n    \"role\": \"Cliente\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/users/auth/register",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"users",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"isVerified\": false,\n        \"isDeleted\": false,\n        \"id\": 1,\n        \"name\": \"Juan Perez\",\n        \"email\": \"demo@demo.com\",\n        \"password\": \"$2b$10$.ajHytTUHU2695RkEnod2umMWaUItrz7ua5QDQa5E0q6dtDZz73Vq\",\n        \"role\": \"Cliente\",\n        \"updatedAt\": \"2025-01-17T23:22:39.916Z\",\n        \"createdAt\": \"2025-01-17T23:22:39.916Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Juan Perez\",\r\n    \"password\": \"12345678\",\r\n    \"role\": \"Negocio\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/users/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fail",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Demo\",\r\n    \"password\": \"12345678\",\r\n    \"role\": \"Cliente\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/users/2",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"users",
+										"2"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Usuario no encontrado\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/products?businessId=1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "businessId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/products/search?businessId=1&id=1&name=1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"products",
+								"search"
+							],
+							"query": [
+								{
+									"key": "businessId",
+									"value": "1"
+								},
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "name",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/products/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/products/4",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"products",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Producto eliminado con éxito\"\n}"
+						},
+						{
+							"name": "Delete product",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/products/1",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"products",
+										"1"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Producto no encontrado\"\n}"
+						}
+					]
+				},
+				{
+					"name": "New product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Producto 1\",\r\n    \"description\": \"Producto 1\",\r\n    \"price\": \"150\",\r\n    \"quantity\": \"1500\",\r\n    \"stock\": \"1500\",\r\n    \"businessId\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/products?businessId=1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "businessId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Producto 1\",\r\n    \"description\": \"Producto 1\",\r\n    \"price\": \"150\",\r\n    \"stock\": \"1500\",\r\n    \"businessId\": \"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/products",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"isDeleted\": false,\n        \"id\": 4,\n        \"name\": \"Producto 1\",\n        \"price\": 150,\n        \"stock\": 1500,\n        \"businessId\": 1,\n        \"description\": \"Producto 1\",\n        \"updatedAt\": \"2025-01-17T00:41:31.794Z\",\n        \"createdAt\": \"2025-01-17T00:41:31.794Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Monitor 27 pulgadas\",\r\n    \"description\": \"Producto 1\",\r\n    \"price\": \"150\",\r\n    \"quantity\": \"1500\",\r\n    \"stock\": \"1500\",\r\n    \"businessId\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/products/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "New order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"businessId\": \"1\",\r\n    \"userId\": \"1\",\r\n    \"products\": [\r\n        {\r\n            \"productId\": 1,\r\n            \"quantity\": 20\r\n        }\r\n    ],\r\n    \"subtotal\": \"1500\",\r\n    \"iva\": \"16\",\r\n    \"total\": \"1575\",\r\n    \"quantity\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/orders",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New order",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"businessId\": \"1\",\r\n    \"userId\": \"1\",\r\n    \"products\": [\r\n    { \"productId\": 1, \"quantity\": 20 }\r\n  ],\r\n    \"subtotal\": \"1500\",\r\n    \"iva\": \"75\",\r\n    \"total\": \"1575\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/orders",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"orders"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 12,\n        \"businessId\": 1,\n        \"userId\": 1,\n        \"products\": [\n            {\n                \"quantity\": 20,\n                \"productId\": 1\n            }\n        ],\n        \"subtotal\": \"1500.00\",\n        \"iva\": \"75.00\",\n        \"total\": \"1575.00\",\n        \"status\": \"Por pagar\",\n        \"updatedAt\": \"2025-01-17T06:19:19.370Z\",\n        \"createdAt\": \"2025-01-17T06:19:19.370Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Pay order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"orderId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/orders/pay",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"orders",
+								"pay"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Pay order Fail",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"orderId\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/orders/pay",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"orders",
+										"pay"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"success\": false,\r\n    \"message\": \"Error al procesar el pago\",\r\n    \"error\": \"Solo se puede pagar una orden con el estado \\\"Por pagar\\\"\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Cancel order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"orderId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/orders/cancel",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"orders",
+								"cancel"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fail cancel order",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"orderId\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/orders/cancel",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"orders",
+										"cancel"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Solo se puede cancelar una orden con el estado \\\"Por pagar\\\"\"\n}"
+						},
+						{
+							"name": "Cancel order OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"orderId\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/orders/cancel",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"orders",
+										"cancel"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Orden cancelada con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/orders?businessId=1&role=Negocio",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "businessId",
+									"value": "1"
+								},
+								{
+									"key": "role",
+									"value": "Negocio"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get orders OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/orders",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"orders"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 3,\n            \"userId\": 1,\n            \"businessId\": 1,\n            \"status\": \"Por pagar\",\n            \"total\": \"1575.00\",\n            \"subtotal\": \"1500.00\",\n            \"iva\": \"16.00\",\n            \"isDeleted\": false,\n            \"createdAt\": \"2025-01-17T16:21:54.662Z\",\n            \"updatedAt\": \"2025-01-17T16:21:54.662Z\"\n        },\n        {\n            \"id\": 4,\n            \"userId\": 1,\n            \"businessId\": 1,\n            \"status\": \"Por pagar\",\n            \"total\": \"1575.00\",\n            \"subtotal\": \"1500.00\",\n            \"iva\": \"16.00\",\n            \"isDeleted\": false,\n            \"createdAt\": \"2025-01-17T16:25:53.836Z\",\n            \"updatedAt\": \"2025-01-17T16:25:53.836Z\"\n        },\n        {\n            \"id\": 5,\n            \"userId\": 1,\n            \"businessId\": 1,\n            \"status\": \"Por pagar\",\n            \"total\": \"1575.00\",\n            \"subtotal\": \"1500.00\",\n            \"iva\": \"16.00\",\n            \"isDeleted\": false,\n            \"createdAt\": \"2025-01-17T16:30:09.200Z\",\n            \"updatedAt\": \"2025-01-17T16:30:09.200Z\"\n        },\n        {\n            \"id\": 6,\n            \"userId\": 1,\n            \"businessId\": 1,\n            \"status\": \"Por pagar\",\n            \"total\": \"1575.00\",\n            \"subtotal\": \"1500.00\",\n            \"iva\": \"16.00\",\n            \"isDeleted\": false,\n            \"createdAt\": \"2025-01-17T16:32:16.282Z\",\n            \"updatedAt\": \"2025-01-17T16:32:16.282Z\"\n        },\n        {\n            \"id\": 7,\n            \"userId\": 1,\n            \"businessId\": 1,\n            \"status\": \"Por pagar\",\n            \"total\": \"1575.00\",\n            \"subtotal\": \"1500.00\",\n            \"iva\": \"16.00\",\n            \"isDeleted\": false,\n            \"createdAt\": \"2025-01-17T16:32:34.915Z\",\n            \"updatedAt\": \"2025-01-17T16:32:34.915Z\"\n        },\n        {\n            \"id\": 8,\n            \"userId\": 1,\n            \"businessId\": 1,\n            \"status\": \"Por pagar\",\n            \"total\": \"1575.00\",\n            \"subtotal\": \"1500.00\",\n            \"iva\": \"16.00\",\n            \"isDeleted\": false,\n            \"createdAt\": \"2025-01-17T16:33:32.853Z\",\n            \"updatedAt\": \"2025-01-17T16:33:32.853Z\"\n        },\n        {\n            \"id\": 9,\n            \"userId\": 1,\n            \"businessId\": 1,\n            \"status\": \"Por pagar\",\n            \"total\": \"1575.00\",\n            \"subtotal\": \"1500.00\",\n            \"iva\": \"16.00\",\n            \"isDeleted\": false,\n            \"createdAt\": \"2025-01-17T16:41:33.352Z\",\n            \"updatedAt\": \"2025-01-17T16:41:33.352Z\"\n        },\n        {\n            \"id\": 10,\n            \"userId\": 1,\n            \"businessId\": 1,\n            \"status\": \"Por pagar\",\n            \"total\": \"1575.00\",\n            \"subtotal\": \"1500.00\",\n            \"iva\": \"16.00\",\n            \"isDeleted\": false,\n            \"createdAt\": \"2025-01-17T16:54:03.927Z\",\n            \"updatedAt\": \"2025-01-17T16:54:03.927Z\"\n        },\n        {\n            \"id\": 2,\n            \"userId\": 1,\n            \"businessId\": 1,\n            \"status\": \"Por pagar\",\n            \"total\": \"1575.00\",\n            \"subtotal\": \"1500.00\",\n            \"iva\": \"16.00\",\n            \"isDeleted\": true,\n            \"createdAt\": \"2025-01-17T16:21:40.637Z\",\n            \"updatedAt\": \"2025-01-17T22:35:51.168Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/orders/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"orders",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete order OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/orders/1",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"orders",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Orden eliminado con éxito\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/orders/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"orders",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get order OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/orders/1",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"orders",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 2,\n        \"userId\": 1,\n        \"businessId\": 1,\n        \"status\": \"Por pagar\",\n        \"total\": \"1575.00\",\n        \"subtotal\": \"1500.00\",\n        \"iva\": \"16.00\",\n        \"isDeleted\": true,\n        \"createdAt\": \"2025-01-17T16:21:40.637Z\",\n        \"updatedAt\": \"2025-01-17T22:35:51.168Z\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"demo@demo.com\",\r\n    \"password\": \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_URL}}/users/auth/login",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"users",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Fail",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"demo@demo.com\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/users/auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"La cuenta no está verificada. Por favor, verifique su cuenta antes de iniciar sesión.\"\n}"
+				},
+				{
+					"name": "Fail password",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"demo@demo.com\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/users/auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"El usuario o la contraseña no son válidas\"\n}"
+				},
+				{
+					"name": "Login OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"demo@demo.com\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/users/auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Inicio de sesión correcto\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6Ik5lZ29jaW8iLCJpYXQiOjE3MzcwODQ0MzQsImV4cCI6MTczNzA4ODAzNH0.7nQmVAoQ54mXngUnDuJcsnbB6GIwQGxqKcX7NSl9ZJA\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"demo@demo.com\",\r\n    \"password\": \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_URL}}/users/auth/logout",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"users",
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
